@@ -14,7 +14,7 @@ int main( void )
         boardConfig();
 
         while( TRUE ) {
-			gpioWrite( LEDB, !gpioRead( TEC1 ));
+			gpioWrite( LEDB, !gpioRead( TEC1));
 			gpioWrite( LED1, !gpioRead( TEC2));
 			gpioWrite( LED2, !gpioRead( TEC3));
 			gpioWrite( LED3, !gpioRead( TEC4));
