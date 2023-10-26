@@ -14,6 +14,11 @@ int main( void )
         boardConfig();
 
         while( TRUE ) {
-			gpioWrite( CIAA_BOARD_LED, gpioRead( CIAA_BOARD_BUTTON ) );
+			gpioWrite( LEDB, !gpioRead( TEC1 ));
+			gpioWrite( LED1, !gpioRead( TEC2));
+			gpioWrite( LED2, !gpioRead( TEC3));
+			gpioWrite( LED3, !gpioRead( TEC4));
+
+			delay( 10 );
         }
 }
