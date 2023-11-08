@@ -1,0 +1,44 @@
+Traza sin herencia de prioridades                              Traza con herencia de prioridades                                             
+                                                                            
+The semaphore was created successfully and can be used.        The semaphore was created successfully and can be used.                                 
+Semaphore has count: 1                                         Semaphore has count: 1                                                                 
+Creating 3 tasks...                                            Creating 3 tasks...                             
+Tasks created                                                  Tasks created                         
+T0      i:1     locks   t:0                                    T0      i:1     locks   t:0                                     
+T0      i:1     [S]     t:18                                   T0      i:1     [S]     t:18                                         
+T0      i:1     [E]     t:1036                                 T0      i:1     [E]     t:1036                                         
+T1      i:1     [S]     t:1053                                 T1      i:1     [S]     t:1053                                         
+T1      i:1     [E]     t:2073                                 T1      i:1     [E]     t:2073                                         
+T2      i:1     locks   t:2090                                 T2      i:1     locks   t:2090                                         
+T2      i:1     [S]     t:2112                                 T2      i:1     [S]     t:2112                                         
+T0      i:2     locks   t:5000                                 T0      i:2     locks   t:5000                                         
+T2      i:1     [E]     t:5151                                 T2      i:1     [E]     t:5151                                         
+T0      i:2     [S]     t:5168                                 T0      i:2     [S]     t:5168                                         
+T0      i:2     [E]     t:6188                                 T0      i:2     [E]     t:6188                                         
+T1      i:2     [S]     t:7000                                 T1      i:2     [S]     t:7000                                         
+T1      i:2     [E]     t:8017                                 T1      i:2     [E]     t:8017                                         
+T0      i:3     locks   t:10000                                T0      i:3     locks   t:10000                                         
+T0      i:3     [S]     t:10020                                T0      i:3     [S]     t:10020                                         
+T0      i:3     [E]     t:11041                                T0      i:3     [E]     t:11041                                         
+T1      i:3     [S]     t:14000                                T1      i:3     [S]     t:14000                                         
+T0      i:4     locks   t:15000                                T0      i:4     locks   t:15000                                         
+T0      i:4     [S]     t:15020                                T0      i:4     [S]     t:15020                                         
+T0      i:4     [E]     t:16041                                T0      i:4     [E]     t:16041                                         
+T1      i:3     [E]     t:16077                                T1      i:3     [E]     t:16077                                         
+T2      i:2     locks   t:19000                                T2      i:2     locks   t:19000                                         
+T2      i:2     [S]     t:19020                                T2      i:2     [S]     t:19020                                         
+T0      i:5     locks   t:20000                                T0      i:5     locks   t:20000                                         
+
+(en este momento T1 posterga la ejecución de T0, 
+que tiene mayor prioridad, al posponer T2)
+
+T1      i:4     [S]     t:21000                                T2      i:2     [E]     t:22061                                         
+T1      i:4     [E]     t:22018                                T0      i:5     [S]     t:22079                                         
+
+T2      i:2     [E]     t:23097                                T0      i:5     [E]     t:23100                                         
+T0      i:5     [S]     t:23115                                T1      i:4     [S]     t:23118                                         
+T0      i:5     [E]     t:24136                                T1      i:4     [E]     t:24139                                         
+T0      i:6     locks   t:25000                                T0      i:6     locks   t:25000                                         
+T0      i:6     [S]     t:25020                                T0      i:6     [S]     t:25020                                         
+
+
