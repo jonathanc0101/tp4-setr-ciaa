@@ -4,9 +4,9 @@
 #define SYSTEM_H
 
 static task_config_t system[] = {
-	{ 4, 5, 5, 0, false},
-	{ 4, 8, 8, 1, false},
-	{ 4, 9, 9, 2, false}
+	{ 1, 3, 3, 0, false},
+	{ 1, 4, 4, 1, false},
+	{ 3, 6, 6, 2, false}
 };
 
 #define AMOUNT_OF_TASKS 3
