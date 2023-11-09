@@ -24,7 +24,7 @@ char mensaje[100];
 void check_deadline(task_config_t task_config, int instance, BaseType_t xWasDelayed){
 
 	if(xWasDelayed){
-		sprintf(mensaje,"T%d\ti:%d\tdeadline missed\tt:%d\r\n",task_config.task_number, instance, xTaskGetTickCount());
+		sprintf(mensaje,"T%d\ti:%d\tdeadline missed\t\tt:%d\r\n",task_config.task_number, instance, xTaskGetTickCount());
 		uartWriteString(UART_USB, mensaje);
 	}{
 		sprintf(mensaje,"T%d\ti:%d\tdeadline not missed\tt:%d\r\n",task_config.task_number, instance, xTaskGetTickCount());
@@ -70,12 +70,12 @@ void locking_task(void *p)
 			//toma mutex
 			xSemaphoreTake(lock,portMAX_DELAY);
 
-			sprintf(mensaje,"T%d\ti:%d\t[S]\tt:%d\r\n",config_ptr->task_number, instance, xTaskGetTickCount());
+			sprintf(mensaje,"T%d\ti:%d\t[S]\t\tt:%d\r\n",config_ptr->task_number, instance, xTaskGetTickCount());
 			uartWriteString(UART_USB, mensaje);
 
 			do_some_work(*config_ptr);
 
-			sprintf(mensaje,"T%d\ti:%d\t[E]\tt:%d\r\n",config_ptr->task_number, instance, xTaskGetTickCount());
+			sprintf(mensaje,"T%d\ti:%d\t[E]\t\tt:%d\r\n",config_ptr->task_number, instance, xTaskGetTickCount());
 			uartWriteString(UART_USB, mensaje);
 
 			//libera mutex
@@ -99,12 +99,12 @@ void non_locking_task(void *p)
 
 			check_deadline(*config_ptr, instance, xWasDelayed);
 
-			sprintf(mensaje,"T%d\ti:%d\t[S]\tt:%d\r\n",config_ptr->task_number, instance, xTaskGetTickCount());
+			sprintf(mensaje,"T%d\ti:%d\t[S]\t\t\tt:%d\r\n",config_ptr->task_number, instance, xTaskGetTickCount());
 			uartWriteString(UART_USB, mensaje);
 
 			do_some_work(*config_ptr);
 
-			sprintf(mensaje,"T%d\ti:%d\t[E]\tt:%d\r\n",config_ptr->task_number, instance, xTaskGetTickCount());
+			sprintf(mensaje,"T%d\ti:%d\t[E]\t\t\tt:%d\r\n",config_ptr->task_number, instance, xTaskGetTickCount());
 			uartWriteString(UART_USB, mensaje);
 
 			xWasDelayed = xTaskDelayUntil( &xLastWakeTime, xPeriod);
